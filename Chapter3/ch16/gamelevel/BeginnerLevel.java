@@ -1,4 +1,4 @@
-package ch16;
+package ch16.gamelevel;
 
 public class BeginnerLevel extends PlayerLevel {
 
