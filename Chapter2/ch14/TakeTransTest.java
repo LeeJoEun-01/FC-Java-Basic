@@ -9,12 +9,12 @@ public class TakeTransTest {
 		Student studentE = new Student("Edward", 20000);
 		
 		Bus bus100 = new Bus(100);
-		Bus bus202 = new Bus(202);
+		// Bus bus202 = new Bus(202);
 		
 		studentJ.takeBus(bus100);
 		
 		Subway greenSubway = new Subway(2);
-		Subway blueSubway = new Subway(1);
+		// Subway blueSubway = new Subway(1);
 		
 		studentT.takeSubway(greenSubway);
 		
