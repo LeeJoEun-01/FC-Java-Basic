@@ -18,10 +18,5 @@ public class MyObjectArray {
 		array = new Object[ARRAY_SIZE];
 	}
 	
-	
-
-	
-	
-	
 }
 
