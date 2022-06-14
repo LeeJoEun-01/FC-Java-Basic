@@ -1,0 +1,10 @@
+6월 14, 2022 1:38:40 오후 ch11.MyLogger log
+FINE: test
+6월 14, 2022 1:38:40 오후 ch11.MyLogger log
+CONFIG: test
+6월 14, 2022 1:38:40 오후 ch11.MyLogger log
+INFO: test
+6월 14, 2022 1:38:40 오후 ch11.MyLogger log
+WARNING: test
+6월 14, 2022 1:38:40 오후 ch11.MyLogger log
+SEVERE: test
