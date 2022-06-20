@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import grade.BasicEvaluation;
 import grade.GradeEvaluation;
 import grade.MajorEvaluation;
+import grade.PassFailEvaluation;
 import school.School;
 import school.Score;
 import school.Student;
@@ -60,17 +61,23 @@ public class GenerateGradeReport {
 		ArrayList<Score> scoreList =  student.getScoreList();
 		int majorId = student.getMajorSubject().getSubjectId();
 
-		GradeEvaluation[] gradeEvaluations = {new BasicEvaluation(), new MajorEvaluation()}; // 학점 평가 클래스들
+		GradeEvaluation[] gradeEvaluations = {new BasicEvaluation(), new MajorEvaluation(), new PassFailEvaluation()}; // 학점 평가 클래스들
+		// BasicEvaluation의 인덱스가 0 => Define 코드의 변수값과 동일
 
 		for(int i=0; i<scoreList.size(); i++) { //학생이 가진 점수들 
 
 			Score score = scoreList.get(i);
 			if(score.getSubject().getSubjectId() == subjectId ) {
 				String grade;
-				if(score.getSubject().getSubjectId() == majorId ) {
-					grade = gradeEvaluations[Define.SAB_TYPE].getGrade(score.getPoint()); //중점 과목 학점 평가 방법
-				}else {
-					grade = gradeEvaluations[Define.AB_TYPE].getGrade(score.getPoint()); //중점 과목이 아닌 경우
+				if( score.getSubject().getGradeType() == Define.PF_TYPE ) {
+					grade = gradeEvaluations[Define.PF_TYPE].getGrade(score.getPoint());
+				}
+				else {
+					if(score.getSubject().getSubjectId() == majorId ) {
+						grade = gradeEvaluations[Define.SAB_TYPE].getGrade(score.getPoint()); //중점 과목 학점 평가 방법
+					}else {
+						grade = gradeEvaluations[Define.AB_TYPE].getGrade(score.getPoint()); //중점 과목이 아닌 경우
+					}
 				}
 				buffer.append(score.getPoint());
 				buffer.append(":");

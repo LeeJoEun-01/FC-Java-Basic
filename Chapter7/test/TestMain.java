@@ -1,5 +1,7 @@
 package test;
 
+import javax.swing.DefaultBoundedRangeModel;
+
 import school.School;
 import school.Score;
 import school.Student;
@@ -12,6 +14,7 @@ public class TestMain {
   School goodSchool = School.getInstance();
   Subject korean;
   Subject math;
+  Subject dance;
 
   GenerateGradeReport gradeReport = new GenerateGradeReport();
   public static void main(String[] args) {
@@ -32,9 +35,15 @@ public class TestMain {
 
     korean = new Subject(Define.KOREAN, "국어");
     math = new Subject(Define.MATH, "수학");
+    dance = new Subject(Define.DANCE, "댄스");
+
+// default가 AB타입 이기 때문에 PF 타입으로 지정해서 바꾸어 줘야한다. SAB타입을 따로 설정하지 않은 이유는 major에 따라서 점수 계산 방법이 달라지도록 if문으로 설정했기때문에
+//major와 상관없이 타입을 바꿔주는 경우 지정해줘야 한다.
+    dance.setGradeType(Define.PF_TYPE);
 
     goodSchool.addSubject(korean);
     goodSchool.addSubject(math);
+    goodSchool.addSubject(dance);
   }
 
   //테스트 학생 생성
@@ -64,6 +73,10 @@ public class TestMain {
     math.register(student4);
     math.register(student5);
 
+    dance.register(student1);
+    dance.register(student2);
+    dance.register(student3);
+
     addScoreForStudent(student1, korean, 95);
     addScoreForStudent(student1, math, 56);
 
@@ -79,6 +92,10 @@ public class TestMain {
     addScoreForStudent(student5, korean, 85);
     addScoreForStudent(student5, math, 56);
 
+    // 댄스 점수 추가
+    addScoreForStudent(student1, dance, 95);
+    addScoreForStudent(student2, dance, 85);
+    addScoreForStudent(student3, dance, 55);
   }
 
   //과목별 성적 입력
