@@ -11,22 +11,21 @@ public class MinMaxProblem {
     int min_pos = 0;
 
     for (int i=0; i<arr.length; i++) {
-      if ( arr[i] > max) {
+// 안의 구문을 if/else로 만들게 되면 if문이 true일 때 else문을 돌지 않는데
+// 이 문제의 경우 최대, 최소를 나눠서 생각하기 때문에 if문을 두 번 사용한다.
+
+     if ( arr[i] > max) {
         max = arr[i];
         max_pos = i;
       } 
-      else {
-        if( arr[i] < min) {
-          min = arr[i];
-          min_pos = i;
-        }
-        else {
-          //아무 일도 일어나지 않는다.
-        }
+
+      if( arr[i] < min) {
+        min = arr[i];
+        min_pos = i;
       }
     }
 
-    System.out.println("최대값: "+max+" / 최대값의 위치: "+max_pos);
-    System.out.println("최소값: "+min+" / 최소값의 위치: "+min_pos);
+    System.out.println("최대값: "+max+" / 최대값의 위치: "+(max_pos+1));
+    System.out.println("최소값: "+min+" / 최소값의 위치: "+(min_pos+1));
   }
 }
